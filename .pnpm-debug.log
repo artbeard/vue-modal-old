@@ -2,22 +2,13 @@
   "0 debug pnpm:scope": {
     "selected": 1
   },
-  "1 info pnpm": {
-    "err": {
-      "name": "Error",
-      "message": "not found: touch",
-      "code": "ENOENT",
-      "stack": "Error: not found: touch\n    at getNotFoundError (C:\\Users\\artBeard\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.22.2\\node_modules\\pnpm\\dist\\pnpm.cjs:36327:51)\n    at Function.whichSync [as sync] (C:\\Users\\artBeard\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.22.2\\node_modules\\pnpm\\dist\\pnpm.cjs:36404:13)\n    at getCommandAbsolutePathSync (C:\\Users\\artBeard\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.22.2\\node_modules\\pnpm\\dist\\pnpm.cjs:37969:44)\n    at default_1 (C:\\Users\\artBeard\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.22.2\\node_modules\\pnpm\\dist\\pnpm.cjs:37978:32)\n    at C:\\Users\\artBeard\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.22.2\\node_modules\\pnpm\\dist\\pnpm.cjs:130156:39"
-    }
-  },
-  "2 error pnpm": {
-    "code": "ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL",
-    "prefix": "e:\\nodeJsProjects\\vue-modal",
+  "1 error pnpm": {
+    "code": "ERR_PNPM_LINK_BAD_PARAMS",
     "err": {
       "name": "pnpm",
-      "message": "not found: touch",
-      "code": "ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL",
-      "stack": "Error: not found: touch\n    at getNotFoundError (C:\\Users\\artBeard\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.22.2\\node_modules\\pnpm\\dist\\pnpm.cjs:36327:51)\n    at Function.whichSync [as sync] (C:\\Users\\artBeard\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.22.2\\node_modules\\pnpm\\dist\\pnpm.cjs:36404:13)\n    at getCommandAbsolutePathSync (C:\\Users\\artBeard\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.22.2\\node_modules\\pnpm\\dist\\pnpm.cjs:37969:44)\n    at default_1 (C:\\Users\\artBeard\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.22.2\\node_modules\\pnpm\\dist\\pnpm.cjs:37978:32)\n    at C:\\Users\\artBeard\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.22.2\\node_modules\\pnpm\\dist\\pnpm.cjs:130156:39"
+      "message": "You must provide a parameter",
+      "code": "ERR_PNPM_LINK_BAD_PARAMS",
+      "stack": "pnpm: You must provide a parameter\n    at Object.handler (C:\\Users\\artBeard\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.22.2\\node_modules\\pnpm\\dist\\pnpm.cjs:118064:17)\n    at async C:\\Users\\artBeard\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.22.2\\node_modules\\pnpm\\dist\\pnpm.cjs:134121:20\n    at async run (C:\\Users\\artBeard\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.22.2\\node_modules\\pnpm\\dist\\pnpm.cjs:134095:34)\n    at async runPnpm (C:\\Users\\artBeard\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.22.2\\node_modules\\pnpm\\dist\\pnpm.cjs:134307:5)\n    at async C:\\Users\\artBeard\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.22.2\\node_modules\\pnpm\\dist\\pnpm.cjs:134299:7"
     }
   }
 }
