@@ -8,7 +8,7 @@
 			:class="['modal-' + size]">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 v-html="title"></h3>
+					<div v-html="title"></div>
 					<button type="button" v-if="closeButton" class="close" @click="onClose($event)">×</button>
 				</div>
 				<div class="modal-body">
@@ -124,9 +124,6 @@ export default {
 	},
 	setup() {
 		
-	},
-	mounted() {
-		console.log(this.okButton);
 	},
 }
 </script>
