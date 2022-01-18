@@ -1,3 +1,3 @@
-import VueModal from 'VueModal.vue'
+import VueModal from './VueModal.vue'
 
-export {VueModal}
+export default {VueModal}
