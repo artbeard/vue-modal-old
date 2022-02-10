@@ -40,6 +40,10 @@ export default {
 		}
 	},
 	props:{
+		id: {
+			type: String,
+			default: null
+		},
 		/**
 		 * Заголовок окна
 		 */
@@ -91,6 +95,8 @@ export default {
 		'modalOk',
 		'modalCansel',
 		'modalClose',
+		'modalShow',
+		'modalHide',
 	],
 	
 	computed:{
@@ -114,14 +120,47 @@ export default {
 
 		show(){
 			this.showModal = true;
+			return new Promise((resolve)=>{
+				this.$emit('modalShow', e);
+				resolve(true)
+			});
 		},
 		hide(){
 			this.showModal = false;
+			return new Promise((resolve)=>{
+				this.$emit('modalHide', e);
+				resolve(true)
+			});
 		},
 		toggle(){
-			this.showModal = !this.showModal;
+			if (this.showModal)
+				this.hide()
+			else
+				this.show();
 		},
 	},
+
+	mounted() {
+		if (
+			typeof this.$vueModals != 'undefined' &&
+			this.id != null &&
+			!(this.id in this.$vueModals)
+			)
+		{
+			this.$vueModals[this.id] = this;
+		}
+	},
+	beforeMount() {
+		if (
+			typeof this.$vueModals != 'undefined' &&
+			this.id != null &&
+			!(this.id in this.$vueModals)
+			)
+		{
+			delete this.$vueModals[this.id];
+		}
+	},
+
 	setup() {
 		
 	},
