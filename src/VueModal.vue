@@ -1,34 +1,38 @@
 <template>
-	<div
-		class="modal fade show d-block"
-		:class="{'vue-modal-overlay': overlay}"
-		style="padding-right: 17px;"
-		v-if="showModal">
-		<div class="modal-dialog"
-			:class="['modal-' + size]">
-			<div class="modal-content">
-				<div class="modal-header">
-					<div v-html="title"></div>
-					<button type="button" v-if="closeButton" class="close" @click="onClose($event)">×</button>
-				</div>
-				<div class="modal-body">
-					<slot></slot>
-				</div>
-				<div class="modal-footer">
-					<button
-						type="button"
-						class="btn btn-default"
-						v-if="cancelButton != false"
-						@click="onCanscel($event)">{{cancelButton}}</button>
-					<button
-						type="button"
-						class="btn btn-primary"
-						v-if="okButton != false"
-						@click="onOk($event)">{{okButton}}</button>
+	<teleport to="body">
+		<div
+			class="modal fade show d-block vue-modal"
+			:class="{'vue-modal-overlay': overlay}"
+			style="padding-right: 17px;"
+			v-if="showModal">
+			
+				<div class="modal-dialog"
+				:class="['modal-' + size]">
+				<div class="modal-content">
+					<div class="modal-header">
+						<div v-html="title"></div>
+						<button type="button" v-if="closeButton" class="close" @click="onClose($event)">×</button>
+					</div>
+					<div class="modal-body">
+						<slot></slot>
+					</div>
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-default"
+							v-if="cancelButton != false"
+							@click="onCanscel($event)">{{cancelButton}}</button>
+						<button
+							type="button"
+							class="btn btn-primary"
+							v-if="okButton != false"
+							@click="onOk($event)">{{okButton}}</button>
+					</div>
 				</div>
 			</div>
+			
 		</div>
-	</div>
+	</teleport>
 </template>
 
 <script>
@@ -149,6 +153,8 @@ export default {
 		{
 			this.$vueModals[this.id] = this;
 		}
+
+		
 	},
 	beforeMount() {
 		if (
@@ -170,5 +176,13 @@ export default {
 <style scoped>
 .vue-modal-overlay{
 	background: rgba(0,0,0, 0.5);
+	/* left: 0 !important;
+	top: 0 !important;
+	right: 0 !important;
+	bottom: 0 !important;
+	position: fixed; */
+}
+.vue-modal{
+	/* height: 100vh; */
 }
 </style>
