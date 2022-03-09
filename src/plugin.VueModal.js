@@ -138,6 +138,10 @@ export default {
 			});
 		};
 
+		app.provide('vueModals', app.config.globalProperties.$vueModals);
+		app.provide('vueModalAlert', app.config.globalProperties.$vueModalAlert);
+		app.provide('vueModalPrompt', app.config.globalProperties.$vueModalPrompt);
+		app.provide('vueModalConfirm', app.config.globalProperties.$vueModalConfirm);
 
 	}
 }
