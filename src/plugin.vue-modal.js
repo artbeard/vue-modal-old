@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import vueModal from "./VueModal.vue";
+import vueModal from "./vue-modal.vue";
 export default {
 	install: (app, options) => {
 		app.component('VueModal', vueModal)

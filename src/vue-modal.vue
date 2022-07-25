@@ -144,7 +144,8 @@ export default {
 		},
 	},
 
-	mounted() {
+	created() {
+	//mounted() {
 		if (
 			typeof this.$vueModals != 'undefined' &&
 			this.id != null &&
@@ -156,7 +157,8 @@ export default {
 
 		
 	},
-	beforeMount() {
+	unmounted() {
+	//beforeMount() {
 		if (
 			typeof this.$vueModals != 'undefined' &&
 			this.id != null &&
@@ -167,9 +169,9 @@ export default {
 		}
 	},
 
-	setup() {
+	// setup() {
 		
-	},
+	// },
 }
 </script>
 
