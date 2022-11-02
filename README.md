@@ -18,14 +18,14 @@ npm link vue-modal
 в файле main.js:
 
 ```
-import VueModal from 'vue-modal';
+import {VueModalPlugin} from 'vue-modal';
 const app = createApp(App)
-app.use(VueModal.VueModalPlugin);
+app.use(VueModalPlugin);
 ...
 app.mount('#app');
 ```
 
-В вашем приложении
+Далее в вашем приложении
 
 ```
 <template>
@@ -66,10 +66,10 @@ export default defineComponent({
 	methods:{
 		enterName(){
 			this.$vueModalPrompt('Введите имя')
-				.then(newName => {
-					if (Boolean(newName))
+				.then(enteredName => {
+					if (Boolean(enteredName))
 					{
-						this.name = newName
+						this.name = enteredName;
 					}
 				});
 		},
