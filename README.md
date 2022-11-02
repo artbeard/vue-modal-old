@@ -29,69 +29,69 @@ app.mount('#app');
 
 ```
 <template>
-	<div class="row">
-		<div class="col-12">
-			<button class="btn btn-primary" @click="enterName">Prompt</button>        
-		</div>
-		<div class="col-12">
-			{{name}}
-		</div>
-		<div class="col-12">
-			<button class="btn btn-secondary" @click="checkName">Alert</button>        
-		</div>
-		<div class="col-12">
-			<button class="btn btn-default" @click="checkMultiplicationTable">Confirm</button>        
-		</div>
-		<div class="col-12">
-			{{mtCheck}}
-		</div>
-		<div class="col-12">
-			<button class="btn btn-primary" @click="$vueModals['modalWindow'].show()">Show Modal</button>        
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-primary" @click="enterName">Prompt</button>        
+    </div>
+    <div class="col-12">
+      {{name}}
+    </div>
+    <div class="col-12">
+      <button class="btn btn-secondary" @click="checkName">Alert</button>        
+    </div>
+    <div class="col-12">
+      <button class="btn btn-default" @click="checkMultiplicationTable">Confirm</button>        
+    </div>
+    <div class="col-12">
+      {{mtCheck}}
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary" @click="$vueModals['modalWindow'].show()">Show Modal</button>        
+    </div>
+  </div>
 
-	<vue-modal id="modalWindow" title="" size="xl" @modalOk="okBtnPressed">
-		...
-		<div>Здесь можно разместить любой текст или html код</div>
-		...
-	</vue-modal>
+  <vue-modal id="modalWindow" title="" size="xl" @modalOk="okBtnPressed">
+    ...
+    <div>Здесь можно разместить любой текст или html код</div>
+    ...
+  </vue-modal>
 </template>
 <script>
 import { defineComponent } from 'vue';
 export default defineComponent({
-	data: function(){return {
-		name: '',
-		mtCheck: '',
-	}},
-	methods:{
-		enterName(){
-			this.$vueModalPrompt('Введите имя')
-				.then(enteredName => {
-					if (Boolean(enteredName))
-					{
-						this.name = enteredName;
-					}
-				});
-		},
-		checkName(){
-			let message = Boolean(this.name) ?
-				'<span class="text-success">Имя введено!</span>' :
-				'<span class="text-danger">Имя не введено!!!</span>' ;
-			this.$vueModalAlert(message, 'Проверка имени');
-		},
-		checkMultiplicationTable(){
-			this.$vueModalConfirm('2 x 2 = 4?')
-		 	.then(res => {
-				if (res)
-		 			this.mtCheck = 'Поздравлаю, Вы знаете тебалицу умножения!';
-				else
-		 			this.mtCheck = 'Позор, Вы не знаете тебалицу умножения!!!';
-		 	})
-		},
-		okBtnPressed(){
-			alert('Ура, нажали на кнопку OK'!)
-		}
-	}
+  data: function(){return {
+    name: '',
+    mtCheck: '',
+  }},
+  methods:{
+    enterName(){
+      this.$vueModalPrompt('Введите имя')
+        .then(enteredName => {
+          if (Boolean(enteredName))
+          {
+            this.name = enteredName;
+          }
+        });
+    },
+    checkName(){
+      let message = Boolean(this.name) ?
+        '<span class="text-success">Имя введено!</span>' :
+        '<span class="text-danger">Имя не введено!!!</span>' ;
+      this.$vueModalAlert(message, 'Проверка имени');
+    },
+    checkMultiplicationTable(){
+      this.$vueModalConfirm('2 x 2 = 4?')
+       .then(res => {
+          if (res)
+            this.mtCheck = 'Поздравлаю, Вы знаете тебалицу умножения!';
+          else
+            this.mtCheck = 'Позор, Вы не знаете тебалицу умножения!!!';
+       })
+    },
+    okBtnPressed(){
+      alert('Ура, нажали на кнопку OK'!)
+    }
+  }
 })
 </script>
 ```
