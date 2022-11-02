@@ -5,13 +5,16 @@
 			:class="{'vue-modal-overlay': overlay}"
 			style="padding-right: 17px;"
 			v-if="showModal">
-			
 				<div class="modal-dialog"
 				:class="['modal-' + size]">
 				<div class="modal-content">
 					<div class="modal-header">
 						<div v-html="title"></div>
-						<button type="button" v-if="closeButton" class="close" @click="onClose($event)">×</button>
+						<button type="button"
+							v-if="closeButton"
+							class="close"
+							@click="onClose($event)"
+							>×</button>
 					</div>
 					<div class="modal-body">
 						<slot></slot>
@@ -36,7 +39,8 @@
 </template>
 
 <script>
-export default {
+import {defineComponent} from 'vue'
+export default defineComponent({
 	name: 'VueModal',
 	data() {
 		return {
@@ -55,7 +59,6 @@ export default {
 			type: String,
 			default: 'Заголовок окна'
 		},
-		
 		/**
 		 * Кнока закрытия
 		 */
@@ -70,7 +73,6 @@ export default {
 			type: [String, Boolean],
 			default: 'Отмена'
 		},
-
 		/**
 		 * Кнопка Ok
 		 */
@@ -78,7 +80,6 @@ export default {
 			type: [String, Boolean],
 			default: 'Ok'
 		},
-
 		/**
 		 * Размер
 		 */
@@ -86,7 +87,6 @@ export default {
 			type: String,
 			default: 'sm'
 		},
-
 		/**
 		 * Оверлей
 		 */
@@ -102,26 +102,21 @@ export default {
 		'modalShow',
 		'modalHide',
 	],
-	
-	computed:{
-	},
-	
 	methods:{
+		//События кнопок
 		onOk(e){
 			this.hide();
 			this.$emit('modalOk', e);
 		},
-
 		onCanscel(e){
 			this.hide();
 			this.$emit('modalCansel', e);
 		},
-
 		onClose(e){
 			this.hide();
 			this.$emit('modalClose', e);
 		},
-
+		//Методы
 		show(){
 			this.showModal = true;
 			return new Promise((resolve)=>{
@@ -145,7 +140,6 @@ export default {
 	},
 
 	created() {
-	//mounted() {
 		if (
 			typeof this.$vueModals != 'undefined' &&
 			this.id != null &&
@@ -153,12 +147,9 @@ export default {
 			)
 		{
 			this.$vueModals[this.id] = this;
-		}
-
-		
+		}	
 	},
 	unmounted() {
-	//beforeMount() {
 		if (
 			typeof this.$vueModals != 'undefined' &&
 			this.id != null &&
@@ -168,23 +159,12 @@ export default {
 			delete this.$vueModals[this.id];
 		}
 	},
-
-	// setup() {
-		
-	// },
-}
+})
 </script>
 
 <style scoped>
 .vue-modal-overlay{
 	background: rgba(0,0,0, 0.5);
-	/* left: 0 !important;
-	top: 0 !important;
-	right: 0 !important;
-	bottom: 0 !important;
-	position: fixed; */
 }
-.vue-modal{
-	/* height: 100vh; */
-}
+.vue-modal{}
 </style>

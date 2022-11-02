@@ -3,15 +3,12 @@ import vueModal from "./vue-modal.vue";
 export default {
 	install: (app, options) => {
 		app.component('VueModal', vueModal)
-
 		//TODO реализовать добавление сюда всех экземплаяров VueModal, имеющих id
 		app.config.globalProperties.$vueModals = {}; //Хранение обявленных окон
-
 		app.config.globalProperties.$vueModalAlert = (content, title = null) => {
 			return new Promise(function(resolve, reject) {
 				let div = document.createElement('div');
 				document.body.append(div);
-
 				const wrapModal = createApp({
 					template: `
 						<vue-modal
@@ -45,7 +42,6 @@ export default {
 			return new Promise(function(resolve, reject) {
 				let div = document.createElement('div');
 				document.body.append(div);
-
 				const wrapModal = createApp({
 					template: `
 						<vue-modal
@@ -96,7 +92,6 @@ export default {
 			});
 		};
 
-
 		app.config.globalProperties.$vueModalConfirm = (content, title = null) => {
 			return new Promise(function(resolve, reject) {
 				let div = document.createElement('div');
@@ -137,11 +132,9 @@ export default {
 				wrapModalComponent.showPrompt();
 			});
 		};
-
 		app.provide('vueModals', app.config.globalProperties.$vueModals);
 		app.provide('vueModalAlert', app.config.globalProperties.$vueModalAlert);
 		app.provide('vueModalPrompt', app.config.globalProperties.$vueModalPrompt);
 		app.provide('vueModalConfirm', app.config.globalProperties.$vueModalConfirm);
-
 	}
 }
