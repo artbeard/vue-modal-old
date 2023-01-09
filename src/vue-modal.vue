@@ -4,7 +4,7 @@
             :class="{'vue-modal-overlay': overlay}"
             style="padding-right: 17px;"
             v-if="showModal">
-         <div class="modal-dialog" :class="['modal-' + size]">
+         <div class="modal-dialog modal-dialog-scrollable" :class="['modal-' + size]">
             <div class="modal-content">
                <div class="modal-header">
                   <div v-html="title"></div>
