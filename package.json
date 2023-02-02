@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Простое модальное окно для vue 3 и bootstrap",
   "main": "index.js",
+  "typings": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
