@@ -8,12 +8,12 @@
             <div class="modal-content">
                <div class="modal-header">
                   <div v-html="title"></div>
-                  <button type="button" v-if="closeButton" class="close" @click="onClose($event)">x</button>
+                  <button type="button" v-if="closeButton" class="close" @click="onClose($event)">✕</button>
                </div>
                <div class="modal-body">
                   <slot></slot>
                </div>
-               <div class="modal-footer">
+               <div class="modal-footer" v-show="cancelButton || okButton">
                   <button type="button" 
                      class="btn btn-default"
                      v-if="cancelButton != false"
@@ -109,14 +109,14 @@ export default defineComponent({
          this.$emit('modalClose', e);
       },
       //Методы
-      show() {
+      show(e) {
          this.showModal = true;
          return new Promise((resolve) => {
             this.$emit('modalShow', e);
             resolve(true)
          });
       },
-      hide() {
+      hide(e) {
          this.showModal = false;
          return new Promise((resolve) => {
             this.$emit('modalHide', e);
