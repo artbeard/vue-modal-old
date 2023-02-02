@@ -8,7 +8,7 @@
             <div class="modal-content">
                <div class="modal-header">
                   <div v-html="title"></div>
-                  <button type="button" v-if="closeButton" class="close" @click="onClose($event)">×</button>
+                  <button type="button" v-if="closeButton" class="close" @click="onClose($event)">x</button>
                </div>
                <div class="modal-body">
                   <slot></slot>
@@ -155,5 +155,5 @@ export default defineComponent({
 .vue-modal-overlay {
    background: rgba(0, 0, 0, 0.5);
 }
-.vue-modal {}
+/*.vue-modal {}*/
 </style>
